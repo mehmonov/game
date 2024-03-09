@@ -1,16 +1,17 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser, Group, Permission
+from django.utils import timezone
+from django.contrib.auth.models import AbstractUser
 
+import datetime
 class UserProfile(AbstractUser):
-    bio = models.TextField(max_length=500, blank=True)
-    location = models.CharField(max_length=30, blank=True)
-    birth_date = models.DateField(null=True, blank=True)
-    groups = models.ManyToManyField(Group, related_name='users')
-    user_permissions = models.ManyToManyField(
-        Permission,
-        verbose_name='user permissions',
-        blank=True,
-        help_text='Specific permissions for this user.',
-        related_name="%(app_label)s_%(class)s_related",
-        related_query_name="%(app_label)s_%(class)ss",
-    )
+    full_name = models.CharField(max_length=30)
+    username = models.CharField(max_length=50,  unique=True)
+    age = models.CharField(max_length=3, blank=True)
+    phone_number = models.CharField(max_length=25)
+    activate_user = models.BooleanField(default=False)
+    password = models.CharField(max_length=100)
+    
+    def __str__(self) -> str:
+        return f"User - {self.full_name}"
+
+

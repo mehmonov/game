@@ -1,4 +1,8 @@
 from django.contrib import admin
 from .models import UserProfile
+from unfold.admin import ModelAdmin
 
-admin.site.register(UserProfile)
+
+@admin.register(UserProfile)
+class UserProfileAdmin(ModelAdmin):
+    pass
