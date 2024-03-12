@@ -1,3 +1,1 @@
-  # token = ''.join([str(i) for i in generate_token()])
-    
-    # bot.reply_to(message, f"Ushbu parolni web saytga tering: \n\n```{token}```", parse_mode='Markdown')
+

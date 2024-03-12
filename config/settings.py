@@ -6,9 +6,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-hz$(sj430n3bh!+n^o_f@___z6+si+kab&_u6r-3f)zkp4kzh6'
 
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS = [
     "unfold",  # before django.contrib.admin
@@ -136,7 +136,10 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 MEDIA_ROOT = 'media/'
-
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+STATIC_ROOT = 'staticfiles'
 MEDIA_URL = 'mediafiles/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
